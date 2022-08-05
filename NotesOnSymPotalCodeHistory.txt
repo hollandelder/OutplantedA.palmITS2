@@ -1,0 +1,37 @@
+Notes on SymPortal Analysis
+
+To set up SymPortal on One's own computer if you have a Windows machine, install the Ubuntu for Windows.
+
+Install this in the home or base directory. 
+
+Follow the instructions for Setup in https://github.com/didillysquat/SymPortal_framework/wiki/0_3_18_19_SymPortal-setup (I will note any differences here).
+
+Install Symportal in the home directory outside of the Ubuntu directory as well. Then install Conda in the Linux directory.
+
+########## To activate and deactivate the Coda environment #########
+#
+#     $ conda activate symportal_env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+######### Activate the Conda environment using the following code:
+	conda activate symportal_env
+
+######### Load the raw reads and start analysis with metadata
+
+./main.py --load /mnt/c/Users/elder/OneDrive/Documents/UniversitySouthernCa/CoralProjects/Apalm_TimeCourse/Processing/AmpliconSeq/ITS2/RawDataTake3/Take3_FASTQ_ITS2/AllRawForSymPortal --name loadrawreads --data_sheet /home/helder/outputsymportal/SymPortal_aplam_its2.xlsx 
+
+
+######### Continue the analysis with this command and get the collapsed DIVs.
+
+./main.py --analyse 6 --name firstanalysis
+
+######### Get sequences ready for phyloseq #########
+
+Change the sample names so that they are all in the format of "site_crossyear-crossnumber_individualnumber"
+Make this consistent across the absolute abundance DIV sheet and the meta data sheet that you will put into phyloseq 
+
+Import into phyloseq in R 
+See Phyloseq_ITS2_Apalm.r to see remaining code.
